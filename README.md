@@ -21,7 +21,6 @@
 ---
 #二. Test Demo
 ###1. [直接选择排序算法](https://github.com/DLUTYJH/DataStructure/tree/master/SelectionSort)
-
 算法思想：每次排序都是从[i,n)范围中找出最小的元素，和位置i的元素进行交换，每一趟排序都能保证某一元素放到最终的排序位置。
 |时间复杂度|空间复杂度|稳定性|
 |--------|--------|------------|
