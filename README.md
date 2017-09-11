@@ -6,7 +6,7 @@
 
 ---
 
-#一. 项目结构介绍
+一. 项目结构介绍
 编码使用的IDE是CLion ，每个demo的主要包含的文件介绍：
 ```
  ./demo
@@ -19,17 +19,28 @@
 ```
 
 ---
-#二. Test Demo
+二. Test Demo
 
-###1. [直接选择排序算法](https://github.com/DLUTYJH/DataStructure/tree/master/SelectionSort)
+ 1. [直接选择排序算法](https://github.com/DLUTYJH/DataStructure/tree/master/SelectionSort)
 
 算法思想：每次排序都是从[i,n)范围中找出最小的元素，和位置i的元素进行交换，每一趟排序都能保证某一元素放到最终的排序位置。
 
-时间复杂度：最好：O($n^2$),   平均：O($n^2$) ,  最坏O($n^2$) 
+时间复杂度：  最好： O($n^2$)  ,   平均： O($n^2$)   ,   最坏：O($n^2$) 
 
 空间复杂度：O(1)
 
 稳定性：不稳定排序
+
+
+ 2. [直接插入排序算法](https://github.com/DLUTYJH/DataStructure/tree/master/SelectionSort)
+
+算法思想：每次将arr[i]和前面的元素比较， 将其插入到[0,i]合适的位置。
+
+时间复杂度：  最好： O($n$)元素序列已经是有序的 ,   平均： O($n^2$)   ,   最坏：O($n^2$) 
+
+空间复杂度：O(1)
+
+稳定性：稳定排序
 
 
 
