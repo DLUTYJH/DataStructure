@@ -32,4 +32,15 @@
 稳定性：不稳定排序
 
 
+ 2. [直接插入排序算法](https://github.com/DLUTYJH/DataStructure/tree/master/SelectionSort)
+
+算法思想：每次将arr[i]和前面的元素比较， 将其插入到[0,i]合适的位置。
+
+时间复杂度：  最好： O($n$)元素序列已经是有序的 ,   平均： O($n^2$)   ,   最坏：O($n^2$) 
+
+空间复杂度：O(1)
+
+稳定性：稳定排序
+
+
 
