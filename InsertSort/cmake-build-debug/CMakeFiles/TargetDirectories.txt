@@ -1,0 +1,3 @@
+/home/answer/CLionProjects/InsertSort/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/answer/CLionProjects/InsertSort/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/answer/CLionProjects/InsertSort/cmake-build-debug/CMakeFiles/InsertSort.dir
