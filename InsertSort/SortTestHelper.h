@@ -8,6 +8,7 @@
 #include<iostream>
 #include <ctime>
 #include <cassert>
+#include <algorithm>
 
 using namespace std ;
 
@@ -26,6 +27,14 @@ namespace  SortTestHelper{
         }
         return  arr ;
     }
+
+    template <typename T>
+    T* copyRandomArray(T arr[] , int len){
+        T * copyArr = new T[len];
+        copy(arr,arr+len,copyArr);
+        return  copyArr ;
+    }
+
 
     template <typename  T>
     void printArry(T arr[] , int len){
@@ -57,6 +66,8 @@ namespace  SortTestHelper{
         isSorted(arr ,len);
         cout<<sortName << " : "<< double(endTime - startTime )/CLOCKS_PER_SEC << "s" <<endl ;
     }
+
+
 
 }
 
