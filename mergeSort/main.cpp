@@ -14,15 +14,35 @@ using namespace std ;
 template <typename  T>
 void mergeSortBU(T arr [] , int len){
 
-    for (int sz = 1; sz <= len; sz+=sz) { //外层循环，对序列进行分割
+    //无优化版本
+//    for (int sz = 1; sz <= len; sz+=sz) { //外层循环，对序列进行分割
+//
+//        for(int i = 0 ; i+sz < len  ; i+=(sz+sz)){  //内层循环，对每个分组分别进行归并
+//
+//            //对[i,i+sz-1 ] 和 [i+sz,i+sz+sz-1]范围进行归并
+//            MERGE::merge(arr, i , i+sz-1 , min(i+sz+sz-1,len-1));
+//        }
+//
+//    }
 
-        for(int i = 0 ; i+sz < len  ; i+=(sz+sz)){  //内层循环，对每个分组分别进行归并
 
-            //对[i,i+sz-1 ] 和 [i+sz,i+sz+sz-1]范围进行归并
-            MERGE::merge(arr, i , i+sz-1 , min(i+sz+sz-1,len-1));
-        }
+    //归并排序的优化
 
+    //小数组使用插入排序
+    for (int i = 0; i < len; i+=16) {
+        MERGE::insertSort(arr,i,min(i+15,len-1));
     }
+
+    for (int sz = 16; sz <= len ; sz+=sz) {
+
+        for (int i = 0; i + sz < len ; i+=(sz+sz)) {
+
+            //对于arr[mid] <= arr[mid+1]的情况,不进行merge
+            if (arr[i+sz-1] > arr[i+sz])
+                MERGE::merge(arr, i , i+sz-1 , min(i+sz+sz-1,len-1));
+        }
+    }
+
 
 }
 
