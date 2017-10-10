@@ -42,8 +42,6 @@ void mergeSortBU(T arr [] , int len){
                 MERGE::merge(arr, i , i+sz-1 , min(i+sz+sz-1,len-1));
         }
     }
-
-
 }
 
 

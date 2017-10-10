@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/answer/CLionProjects/HeapSort/SortTestHelper.h
+iostream
+-
+ctime
+-
+cassert
+-
+algorithm
+-
+
+/home/answer/CLionProjects/HeapSort/main.cpp
+iostream
+-
+SortTestHelper.h
+/home/answer/CLionProjects/HeapSort/SortTestHelper.h
+
