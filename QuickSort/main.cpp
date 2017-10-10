@@ -1,5 +1,7 @@
 #include <iostream>
 #include "SortTestHelper.h"
+#include <ctime>
+#include <cassert>
 
 /**
  * 快速排序：
@@ -139,10 +141,56 @@ template <typename T >
 void quickSort(T arr[] , int len){
 
     srand(time(NULL)) ;
-    //__quickSort(arr, 0 ,len - 1 );
-    __quickSort3Ways(arr, 0,len-1);
+    __quickSort(arr, 0 ,len - 1 );
+    //__quickSort3Ways(arr, 0,len-1);
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//利用快速排序的思想解决实际问题
+//查找序列中第n大的元素
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+//通过排序来查找第n大的元素
+int findValueBySort(int arr[] , int len ,int n ){
+
+    //assert(n > len );
+    if (n > len ) return  -1 ;
+    clock_t  startTime = clock();
+    quickSort(arr,len);
+    clock_t  endTime = clock();
+    cout<<"快速排序查找第n大的值 "<< " : "<< double(endTime - startTime )/CLOCKS_PER_SEC << "s" <<endl ;
+    return arr[len-n] ;
+}
+
+
+int  __findValue(int arr[] , int l ,int r ,int n ) {
+
+    //快速排序的分割办法
+    int p = __partition_2(arr,l,r);
+
+    //比较n 和partition的 返回值
+    //n==p ,查找结束
+    //n > p , 在右侧查找
+    // n < p ，在左侧查找
+    if (n == p ) return arr[p];
+    else if (n > p ) __findValue(arr, p+1, r ,n );
+    else __findValue(arr, l, p-1 ,n );
+
+
+}
+
+//利用快速排序的思想
+int  findValue(int arr[] , int len ,int n ){
+    //assert(n > len) ;
+    if (n > len ) return  -1 ;
+    clock_t  startTime = clock();
+
+    int value =  __findValue(arr,0,len-1,len-n);
+
+    clock_t  endTime = clock();
+    cout<<"利用分治思想查找第n大的值 "<< " : "<< double(endTime - startTime )/CLOCKS_PER_SEC << "s" <<endl ;
+    return value ;
+}
 
 
 
@@ -151,11 +199,22 @@ int main() {
     int * arr = SortTestHelper::generateRandomArray(n,0,n);
     //int arr[] = {5,8,3,1,6,7,4,9};
 
-    quickSort(arr, n);
+    //quickSort(arr, n);
 
     SortTestHelper::printArry(arr, n );
 
     //SortTestHelper::testSort("自底向上的优化归并排序",quickSort,arr,n);
+
+    int value = findValue(arr, n,4);
+
+    cout<<"value = " <<value <<endl ;
+
+    int value1 = findValueBySort(arr, n , 4);
+    SortTestHelper::printArry(arr, n );
+
+    cout<<"value1 = " <<value1 <<endl ;
+
+
 
     delete[] arr;
     return 0;
