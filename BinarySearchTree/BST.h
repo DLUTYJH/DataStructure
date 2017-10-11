@@ -12,6 +12,9 @@
  * 遍历操作： 广度优先，深度优先（前序，中序，后序）
  * 删除操作：
  * 查找最大值和最小值操作：
+ * 删除最大值和最小值,时间复杂度(O(logn))
+ * 删除任意节点操作,时间复杂度(O(logn))
+ *
  * */
 
 #include <iostream>
@@ -37,6 +40,20 @@ private:
             this->value = value ;
             left = NULL ;
             right = NULL ;
+        }
+
+        Node (Node * other){
+            this->key = other->key;
+            this->value = other->value;
+            this->left = other->left;
+            this->right = other ->right;
+        }
+
+        Node *operator = (Node * other){
+            this->key = other->key;
+            this->value = other->value;
+            this->left = other->left;
+            this->right = other ->right;
         }
     };
 
@@ -269,6 +286,117 @@ public:
         return &(p->value);
     }
 
+    ////////////////////////////////
+    //删除最大值和最小值
+    ///////////////////////////////
+
+    //删除最大值和最小值的迭代实现
+    void removeMin(){
+        Node * p = root ;
+        Node * pre = root ;
+        if(root == NULL) return ;
+
+        while(p->left != NULL) {
+            pre = p ;
+            p = p->left;
+        }
+
+//        if(p->right != NULL ) {
+//            pre->left = p->right;
+//            count-- ;
+//            delete p ;
+//        }else {
+//            pre->left = NULL ;
+//            count-- ;
+//            delete p ;
+//        }
+        pre->left = p->right ;
+        delete p ;
+        count -- ;
+    }
+
+    void removeMax(){
+        Node * p = root ;
+        Node * pre = root ;
+        if(root == NULL) return ;
+
+        while(p->right != NULL) {
+            pre = p ;
+            p = p->right;
+        }
+
+//        if(p->left != NULL ) {
+//            pre->right = p->left;
+//            count-- ;
+//            delete p ;
+//        }else {
+//            pre->right = NULL ;
+//            count-- ;
+//            delete p ;
+//        }
+        pre->right = p->left ;
+        delete p ;
+        count -- ;
+    }
+
+    //删除最大值和最小值的递归实现
+    void removeMinByRecusion(){
+       root =  __removeMin(root);
+    }
+
+    void removeMaxByRecusion(){
+        root = __removeMax(root);
+    }
+
+
+    ////////////////////////////////
+    //删除任意节点: 复制删除
+    ///////////////////////////////
+    void remove(K key ){
+
+        Node * p = __search(key);
+        Node * tmp = p ;
+        if(p == NULL ) return ;
+
+        if (p ->left == NULL) { //只有右孩子
+            tmp = p->right ;
+            //p = new Node(p->right);
+            p->key = tmp->key;
+            p->value = tmp->value;
+            p->left = tmp->left;
+            p->right = tmp->right;
+        }else if(p->right ==NULL){ //只有左孩子
+            tmp = p->left ;
+            //p = new Node(p->left);
+            p->key = tmp->key;
+            p->value = tmp->value;
+            p->left = tmp->left;
+            p->right = tmp->right;
+        } else{ //左右孩子都有
+
+            //查找到右子树中最小值
+            tmp = p ->right;
+            Node* pre = p ;
+            while (tmp->left != NULL){
+                pre = tmp ;
+                tmp=tmp->left;
+            }
+
+            //将查找到节点的data 赋值给删除节点
+            p->key = tmp->key;
+            p->value = tmp->value;
+
+            //处理查找到节点的右孩子
+            if(pre == p )  pre->right = tmp->right;
+            else pre->left = tmp->right;
+
+        }
+        delete tmp ;
+        count--;
+    }
+
+
+
 private:
     Node * __insertNodeByRecusion(Node * node , K key , V value ){
 
@@ -301,6 +429,20 @@ private:
         if (node->key == key ) return &(node->value);
         else if(node -> key < key )return __search(node->right , key );
         else return __search(node->left , key );
+    }
+
+    Node* __search(K key ){
+
+        Node * p = root ;
+        while (p != NULL ){
+            if (p ->key == key ) return p ;
+            else if (p->key < key ) {
+                p = p->right ;
+            }else {
+                p= p->left;
+            }
+        }
+        return  NULL;
     }
 
 
@@ -336,6 +478,32 @@ private:
             count-- ;
         }
     }
+
+   Node*  __removeMin(Node* node){
+
+       if(node->left == NULL){
+           Node* right = node->right;
+           delete node ;
+           count--;
+           return right ;
+       }
+       node->left = __removeMin(node->left);
+       return node ;
+   }
+
+    Node* __removeMax(Node * node){
+        if(node->right == NULL){
+            Node* left = node->left;
+            delete node ;
+            count--;
+            return left ;
+        }
+        node->right = __removeMax(node->right);
+        return node ;
+    }
+
+
+
 };
 
 

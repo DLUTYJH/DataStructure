@@ -41,7 +41,7 @@ int main() {
     bst.insertNodeByRecusion(10,444);
     bst.insertNodeByRecusion(8,2);
 
-    //bst.levelOrder();
+    bst.levelOrder();
     cout<<"**************"<<endl ;
     //bst.preOrderByrecusion();
     //bst.preOrderWithoutRecusion();
@@ -50,7 +50,7 @@ int main() {
    // bst.inOrderWithoutRecusion();
     cout<<"**************"<<endl ;
     //bst.postOrderRecusion();
-    bst.postOrderWithoutRecusion();
+    //bst.postOrderWithoutRecusion();
 
     cout<< " 是否找到 key  : "<<bst.containWithoutRecusion(0)<<endl ;
     cout<< " 是否找到 key  : "<<bst.containByRecusion(0)<<endl ;
@@ -60,6 +60,18 @@ int main() {
 
     cout<<"min = "<<*bst.min()<<endl ;
     cout<<"max = "<<*bst.max()<<endl ;
+
+    //bst.removeMin();
+    //bst.removeMinByRecusion();
+   // bst.levelOrder();
+
+    cout<<"**************"<<endl ;
+    //bst.removeMax();
+    //bst.removeMaxByRecusion();
+   // bst.levelOrder();
+
+    bst.remove(2);
+    bst.levelOrder();
 
 
 
