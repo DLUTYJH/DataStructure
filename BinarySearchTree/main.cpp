@@ -2,6 +2,7 @@
 #include <ctime>
 #include "binarysearch.h"
 #include "BST.h"
+#include <stack>
 
 using namespace std ;
 
@@ -35,18 +36,31 @@ int main() {
     BST<int ,int > bst ;
     bst.insertNodeByRecusion(2,2);
     bst.insertNodeByRecusion(1,2);
-    bst.insertNodeByRecusion(0,333);
+    bst.insertNodeByRecusion(0,-3);
     bst.insertNodeByRecusion(9,2);
-    bst.insertNodeByRecusion(10,2);
+    bst.insertNodeByRecusion(10,444);
     bst.insertNodeByRecusion(8,2);
 
-    bst.levelOrder();
+    //bst.levelOrder();
+    cout<<"**************"<<endl ;
+    //bst.preOrderByrecusion();
+    //bst.preOrderWithoutRecusion();
+    cout<<"**************"<<endl ;
+    //bst.inOrerByRecusion();
+   // bst.inOrderWithoutRecusion();
+    cout<<"**************"<<endl ;
+    //bst.postOrderRecusion();
+    bst.postOrderWithoutRecusion();
 
     cout<< " 是否找到 key  : "<<bst.containWithoutRecusion(0)<<endl ;
     cout<< " 是否找到 key  : "<<bst.containByRecusion(0)<<endl ;
 
     cout<< " value =  : "<<*bst.searchWithoutRecusion(0)<<endl ;
     cout<< " value =  : "<<*bst.searchByRecsion(0)<<endl ;
+
+    cout<<"min = "<<*bst.min()<<endl ;
+    cout<<"max = "<<*bst.max()<<endl ;
+
 
 
     delete [] arr;
