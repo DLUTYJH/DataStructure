@@ -6,9 +6,21 @@
 
 #IncludeRegexTransform: 
 
+/home/answer/CLionProjects/BinarySearchTree/BST.h
+iostream
+-
+queue
+-
+
+/home/answer/CLionProjects/BinarySearchTree/binarysearch.h
+
 /home/answer/CLionProjects/BinarySearchTree/main.cpp
 iostream
 -
 ctime
 -
+binarysearch.h
+/home/answer/CLionProjects/BinarySearchTree/binarysearch.h
+BST.h
+/home/answer/CLionProjects/BinarySearchTree/BST.h
 
