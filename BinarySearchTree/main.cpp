@@ -97,8 +97,6 @@ int main() {
     sst.insertNode("hello77",88);
     sst.insertNode("hello88",9);
     sst.insertNode("hello88",99);
-    sst.insertNode("hello99",10);
-    sst.insertNode("hello99",1010);
 
     sst.print();
 
