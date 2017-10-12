@@ -224,7 +224,6 @@ public:
     bool containWithoutRecusion(K key ){
         Node * p = root ;
         while (p != NULL ){
-
             if (p ->key == key ) return true ;
             else if (p->key < key ) {
                 p = p->right ;
@@ -395,6 +394,13 @@ public:
         count--;
     }
 
+    ////////////////////////////////
+    //删除任意节点: 合并删除
+    ///////////////////////////////
+    void removeByMerge(K key){
+        root = __remove(root,key);
+    }
+
 
 
 private:
@@ -502,11 +508,47 @@ private:
         return node ;
     }
 
+    Node* __remove(Node * node,K key ){
+        if(node == NULL) return NULL ;
 
+        if(key < node -> key){
+            node->left = __remove(node->left,key);
+            return  node ;
+        }else if(key > node->key){
+            node->right = __remove(node->right,key);
+            return node ;
+        }else { //找到了节点
+            if(node->left == NULL){
+                Node* right = node->right;
+                delete node ;
+                count -- ;
+                return  right ;
+            } else if(node->right == NULL){
+                Node * left = node->left ;
+                delete node ;
+                count--;
+                return left ;
+            }else{ //有两个节点的情况
+                Node* p = node->left;
+                Node* tmp = node ;
+                //右子树中找到最小值
+                while (p->right != NULL){
+                    tmp = p ;
+                    p=p->right;
+                }
+                //合并操作
+                p->right = node->right;
+                //p->left = node->left;
+
+                if(node == tmp ) tmp = p ;
+
+                delete node ;
+                count-- ;
+                return tmp ;
+            }
+        }
+    }
 
 };
-
-
-
 
 #endif //BINARYSEARCHTREE_BST_H

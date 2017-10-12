@@ -70,8 +70,10 @@ int main() {
     //bst.removeMaxByRecusion();
    // bst.levelOrder();
 
-    bst.remove(2);
+    //bst.remove(2);
+    bst.removeByMerge(9);
     bst.levelOrder();
+    cout<<"dfaaa"<<endl ;
 
 
 
