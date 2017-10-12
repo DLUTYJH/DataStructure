@@ -14,6 +14,10 @@ queue
 stack
 -
 
+/home/answer/CLionProjects/BinarySearchTree/SequenceST.h
+iostream
+-
+
 /home/answer/CLionProjects/BinarySearchTree/binarysearch.h
 
 /home/answer/CLionProjects/BinarySearchTree/main.cpp
@@ -26,5 +30,9 @@ binarysearch.h
 BST.h
 /home/answer/CLionProjects/BinarySearchTree/BST.h
 stack
+-
+SequenceST.h
+/home/answer/CLionProjects/BinarySearchTree/SequenceST.h
+cstring
 -
 
