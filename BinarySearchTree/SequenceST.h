@@ -43,6 +43,11 @@ public:
     }
     ~SequenceST(){
         //TODO
+        while(head != NULL){
+            head = head->next;
+            delete head;
+            count -- ;
+        }
     }
 
     int size(){

@@ -91,6 +91,9 @@
 		<Unit filename="/home/answer/CLionProjects/BinarySearchTree/BST.h">
 			<Option target="BinarySearchTree"/>
 		</Unit>
+		<Unit filename="/home/answer/CLionProjects/BinarySearchTree/FileReader.h">
+			<Option target="BinarySearchTree"/>
+		</Unit>
 		<Unit filename="/home/answer/CLionProjects/BinarySearchTree/SequenceST.h">
 			<Option target="BinarySearchTree"/>
 		</Unit>
