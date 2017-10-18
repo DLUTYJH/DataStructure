@@ -63,6 +63,23 @@ namespace  UnionFindTestHelper {
         time_t  end = clock();
         std::cout<<"QuickFindByRank time =  "<<double(end-start)/CLOCKS_PER_SEC<<" S "<<std::endl ;
     }
+
+    void testQuickUnionByPath(int n ){
+        srand(time(NULL));
+
+        PATH::QuickFind qf(n);
+
+        time_t  start = clock();
+
+        for (int i = 0; i < n; ++i) {
+            int a = rand()%n ;
+            int b = rand()%n ;
+            qf.unionElements(a,b);
+        }
+
+        time_t  end = clock();
+        std::cout<<"QuickFindByPath time =  "<<double(end-start)/CLOCKS_PER_SEC<<" S "<<std::endl ;
+    }
 }//UnionFindTestHelper
 
 
