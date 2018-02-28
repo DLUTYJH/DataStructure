@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/aurora/DataStructure/QuickSort/SortTestHelper.h
+iostream
+-
+ctime
+-
+cassert
+-
+algorithm
+-
+
+/home/aurora/DataStructure/QuickSort/main.cpp
+iostream
+-
+SortTestHelper.h
+/home/aurora/DataStructure/QuickSort/SortTestHelper.h
+ctime
+-
+cassert
+-
+
