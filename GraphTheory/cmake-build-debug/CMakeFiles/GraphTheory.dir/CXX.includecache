@@ -22,6 +22,14 @@ stack
 cassert
 -
 
+/home/aurora/DataStructure/GraphTheory/Path.h
+iostream
+-
+cassert
+-
+vector
+-
+
 /home/aurora/DataStructure/GraphTheory/SparseGraph.h
 iostream
 -
@@ -41,4 +49,6 @@ GraphSearch.h
 /home/aurora/DataStructure/GraphTheory/GraphSearch.h
 ctime
 -
+Path.h
+/home/aurora/DataStructure/GraphTheory/Path.h
 

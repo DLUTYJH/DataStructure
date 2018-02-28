@@ -3,6 +3,7 @@
 
 CMakeFiles/GraphTheory.dir/main.cpp.o: ../DenseGraph.h
 CMakeFiles/GraphTheory.dir/main.cpp.o: ../GraphSearch.h
+CMakeFiles/GraphTheory.dir/main.cpp.o: ../Path.h
 CMakeFiles/GraphTheory.dir/main.cpp.o: ../SparseGraph.h
 CMakeFiles/GraphTheory.dir/main.cpp.o: ../main.cpp
 

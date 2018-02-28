@@ -90,6 +90,9 @@
 		<Unit filename="/home/aurora/DataStructure/GraphTheory/GraphSearch.h">
 			<Option target="GraphTheory"/>
 		</Unit>
+		<Unit filename="/home/aurora/DataStructure/GraphTheory/Path.h">
+			<Option target="GraphTheory"/>
+		</Unit>
 		<Unit filename="/home/aurora/DataStructure/GraphTheory/SparseGraph.h">
 			<Option target="GraphTheory"/>
 		</Unit>

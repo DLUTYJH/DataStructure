@@ -4,12 +4,13 @@
 #include "SparseGraph.h"
 #include "GraphSearch.h"
 #include <ctime>
+#include "Path.h"
 
 int main() {
 
     int N = 4;
     int M = 5;
-    DenseGraph dGraph(N, false);
+    DenseGraph dGraph(N, true);
     srand(time(NULL));
     for (int i = 0; i < M; i++) {
         int n = rand() % N;
@@ -17,13 +18,17 @@ int main() {
         dGraph.addEdge(n, m);
     }
     dGraph.display();
-    GraphSearch<DenseGraph> gs(dGraph);
-    //gs.BFS();
     cout<<endl<<endl;
-    //gs.DFS();
-    cout<<endl<<endl;
-    gs.DFSByRecursive();
-    //cout<<endl<<"连通分量是:"<<gs.countComponent()<<endl ;
+    Path<DenseGraph> gs(dGraph,0);
+    cout<<"环数： "<<gs.countRingNum(0)<<endl;
+//    gs.displayPath(3);
+//    GraphSearch<DenseGraph> gs(dGraph);
+//    gs.BFS();
+//    cout<<endl<<endl;
+//    gs.DFS();
+//    cout<<endl<<endl;
+//    gs.DFSByRecursive();
+//    cout<<endl<<"连通分量是:"<<gs.countComponent()<<endl ;
 
 //
 //    for (int i = 0; i < N; i++) {
@@ -35,6 +40,7 @@ int main() {
 //        cout << endl;
 //    }
 
+    cout<<endl<<endl;
     //////////////////////////////////////////////////////////////
     SparseGraph sGraph(N, false);
     for (int i = 0; i < M; i++) {
@@ -50,16 +56,17 @@ int main() {
 //        }
 //        cout << endl;
 //    }
-    cout<<endl<<endl;
-
     sGraph.display();
-    GraphSearch<SparseGraph> gss(sGraph);
-    //gss.BFS();
     cout<<endl<<endl;
-    //ss.DFS();
-    cout<<endl<<endl;
-    gss.DFSByRecursive();
-    //cout<<endl<<"连通分量是:"<<gss.countComponent()<<endl ;
+//    Path<SparseGraph> gss(sGraph,0);
+//    gss.displayPath(3);
+//    GraphSearch<SparseGraph> gss(sGraph);
+//    gss.BFS();
+//    cout<<endl<<endl;
+//    gss.DFS();
+//    cout<<endl<<endl;
+//    gss.DFSByRecursive();
+//    cout<<endl<<"连通分量是:"<<gss.countComponent()<<endl ;
 
     return 0;
 }
