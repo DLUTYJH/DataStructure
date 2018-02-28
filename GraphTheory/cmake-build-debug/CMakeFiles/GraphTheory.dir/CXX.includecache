@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/aurora/DataStructure/GraphTheory/DenseGraph.h
+iostream
+-
+vector
+-
+cassert
+-
+
+/home/aurora/DataStructure/GraphTheory/GraphSearch.h
+iostream
+-
+stack
+-
+cassert
+-
+
+/home/aurora/DataStructure/GraphTheory/SparseGraph.h
+iostream
+-
+vector
+-
+cassert
+-
+
+/home/aurora/DataStructure/GraphTheory/main.cpp
+iostream
+-
+DenseGraph.h
+/home/aurora/DataStructure/GraphTheory/DenseGraph.h
+SparseGraph.h
+/home/aurora/DataStructure/GraphTheory/SparseGraph.h
+GraphSearch.h
+/home/aurora/DataStructure/GraphTheory/GraphSearch.h
+ctime
+-
+

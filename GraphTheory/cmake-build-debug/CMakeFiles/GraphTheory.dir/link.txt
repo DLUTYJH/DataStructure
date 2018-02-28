@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/GraphTheory.dir/main.cpp.o  -o GraphTheory 
