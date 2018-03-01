@@ -4,12 +4,13 @@
 #include "SparseGraph.h"
 #include "GraphSearch.h"
 #include <ctime>
+#include "ShortestPath.h"
 #include "Path.h"
 
 int main() {
 
-    int N = 4;
-    int M = 5;
+    int N = 10;
+    int M = 30;
     DenseGraph dGraph(N, true);
     srand(time(NULL));
     for (int i = 0; i < M; i++) {
@@ -18,9 +19,14 @@ int main() {
         dGraph.addEdge(n, m);
     }
     dGraph.display();
-    cout<<endl<<endl;
-    Path<DenseGraph> gs(dGraph,0);
-    cout<<"环数： "<<gs.countRingNum(0)<<endl;
+    cout << endl << endl;
+    ShortestPath<DenseGraph> gs(dGraph,0);
+    gs.displayPath(9);
+    cout<<endl<<"dis =  "<<gs.disLength(9)<<endl ;
+//    GraphSearch<DenseGraph> gs(dGraph);
+//    gs.BFS();
+//    Path<DenseGraph> gs(dGraph, 0);
+//    cout << "环数： " << gs.countRingNum(0) << endl;
 //    gs.displayPath(3);
 //    GraphSearch<DenseGraph> gs(dGraph);
 //    gs.BFS();
@@ -40,7 +46,7 @@ int main() {
 //        cout << endl;
 //    }
 
-    cout<<endl<<endl;
+    cout << endl << endl;
     //////////////////////////////////////////////////////////////
     SparseGraph sGraph(N, false);
     for (int i = 0; i < M; i++) {
@@ -57,7 +63,12 @@ int main() {
 //        cout << endl;
 //    }
     sGraph.display();
-    cout<<endl<<endl;
+    cout << endl << endl;
+    ShortestPath<SparseGraph> gss(sGraph,0);
+    gss.displayPath(9);
+    cout<<endl<<"dis =  "<<gss.disLength(9)<<endl ;
+//    GraphSearch<SparseGraph> gss(sGraph);
+//    gss.BFS();
 //    Path<SparseGraph> gss(sGraph,0);
 //    gss.displayPath(3);
 //    GraphSearch<SparseGraph> gss(sGraph);

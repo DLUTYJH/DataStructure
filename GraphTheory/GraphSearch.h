@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <stack>
+#include <queue>
 #include <cassert>
 
 using namespace std;
@@ -17,6 +18,7 @@ class GraphSearch {
 private:
     Graph &G;
 
+private:
     void dfs(int v, bool *visited) {
         cout << v << "\t";
         visited[v] = true;
@@ -24,6 +26,27 @@ private:
         for (int w = it.begin(); it.end(); w = it.next()) {
             if (!visited[w]) {
                 dfs(w, visited);
+            }
+        }
+    }
+
+private:
+    void bfs(int v,bool *visited){
+        queue<int> que ;
+        que.push(v);
+        visited[v] = true ;
+
+        while (!que.empty()){
+            int w = que.front() ;
+            cout<<w<<"\t";
+            que.pop();
+
+            typename Graph::Iterator it(G,w);
+            for (int i = it.begin(); it.end(); i = it.next()) {
+                if(!visited[i]){
+                    visited[i] = true ;
+                    que.push(i);
+                }
             }
         }
     }
@@ -125,15 +148,7 @@ public:
 
         for (int i = 0; i < G.V(); i++) {
             if (!visited[i]) {
-                cout << i << "\t";
-                visited[i] = true;
-                typename Graph::Iterator it(G, i);
-                for (int w = it.begin(); it.end(); w = it.next()) {
-                    if (!visited[w]) {
-                        cout << w << "\t";
-                        visited[w] = true;
-                    }
-                }
+                bfs(i,visited);
             }
         }
     }
