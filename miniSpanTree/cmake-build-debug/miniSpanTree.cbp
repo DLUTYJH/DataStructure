@@ -87,6 +87,9 @@
 		<Unit filename="/home/aurora/DataStructure/miniSpanTree/DenseGraph.h">
 			<Option target="miniSpanTree"/>
 		</Unit>
+		<Unit filename="/home/aurora/DataStructure/miniSpanTree/Dijkstra.h">
+			<Option target="miniSpanTree"/>
+		</Unit>
 		<Unit filename="/home/aurora/DataStructure/miniSpanTree/Edge.h">
 			<Option target="miniSpanTree"/>
 		</Unit>
