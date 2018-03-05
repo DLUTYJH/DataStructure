@@ -16,6 +16,20 @@ cassert
 Edge.h
 /home/aurora/DataStructure/miniSpanTree/Edge.h
 
+/home/aurora/DataStructure/miniSpanTree/Dijkstra.h
+cassert
+-
+vector
+-
+Edge.h
+/home/aurora/DataStructure/miniSpanTree/Edge.h
+algorithm
+-
+limits
+-
+stack
+-
+
 /home/aurora/DataStructure/miniSpanTree/Edge.h
 iostream
 -
@@ -71,4 +85,8 @@ lazyPrim.h
 /home/aurora/DataStructure/miniSpanTree/lazyPrim.h
 Kruskal.h
 /home/aurora/DataStructure/miniSpanTree/Kruskal.h
+limits
+-
+Dijkstra.h
+/home/aurora/DataStructure/miniSpanTree/Dijkstra.h
 
